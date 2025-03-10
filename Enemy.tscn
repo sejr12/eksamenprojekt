@@ -197,8 +197,8 @@ shape = SubResource("RectangleShape2D_e6d4v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_jdgko")
-animation = &"Die"
-frame_progress = 0.481661
+animation = &"Hit"
+frame_progress = 0.617663
 
 [node name="Area2D" type="Area2D" parent="."]
 
