@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dg3x68enha2dk"]
 
-[ext_resource type="Script" path="res://tempdeathscreen.gd" id="1_5lmrr"]
+[ext_resource type="Script" uid="uid://dguua2p42fjjr" path="res://tempdeathscreen.gd" id="1_5lmrr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
