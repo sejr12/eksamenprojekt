@@ -1,7 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://c8eey2sktceif"]
+[gd_scene load_steps=42 format=3 uid="uid://c8eey2sktceif"]
 
 [ext_resource type="Texture2D" uid="uid://dr3lnwr4s7km8" path="res://Pistol V01.00 - Second version sprite sheets (80x48)/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - EMPTYING.png" id="1_lijrf"]
+[ext_resource type="Script" uid="uid://cl5y44k3rdthb" path="res://Script/pistol.gd" id="1_m1mwh"]
 [ext_resource type="Texture2D" uid="uid://di8r45537c3m6" path="res://Pistol V01.00 - Second version sprite sheets (80x48)/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - RELOAD.png" id="2_tlox2"]
+[ext_resource type="Texture2D" uid="uid://buyxkoxqog7ym" path="res://Pistol V01.00 - Second version sprite sheets (80x48)/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - SHOOTING (ALL FX).png" id="3_tlox2"]
+[ext_resource type="PackedScene" uid="uid://bce5dmapat2ln" path="res://Scene/bullet.tscn" id="5_c3dpt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1mwh"]
 atlas = ExtResource("1_lijrf")
@@ -99,6 +102,50 @@ region = Rect2(1680, 0, 80, 48)
 atlas = ExtResource("2_tlox2")
 region = Rect2(1760, 0, 80, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k16ln"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(0, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pbu3"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(80, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc8ve"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(160, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm60t"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(240, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti8x6"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(320, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njuvi"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(400, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8tqj"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(480, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fikk3"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(560, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r534j"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(640, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypici"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(720, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67ryv"]
+atlas = ExtResource("3_tlox2")
+region = Rect2(800, 0, 80, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_k16ln"]
 animations = [{
 "frames": [{
@@ -182,10 +229,54 @@ animations = [{
 "loop": false,
 "name": &"Reload",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k16ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pbu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc8ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm60t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti8x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njuvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8tqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fikk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r534j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypici")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67ryv")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 15.0
 }]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_m1mwh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k16ln")
-animation = &"Idle"
+animation = &"shoot"
+frame_progress = 0.292116
+
+[node name="Bullet" parent="." instance=ExtResource("5_c3dpt")]
+position = Vector2(31, -12)
+scale = Vector2(0.061, 0.08)
