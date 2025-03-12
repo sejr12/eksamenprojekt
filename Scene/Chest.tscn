@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd45apo2ma35f"]
+[gd_scene load_steps=14 format=3 uid="uid://bd45apo2ma35f"]
 
 [ext_resource type="Texture2D" uid="uid://dtyqvoujvn1ho" path="res://Animated Chests/Chests.png" id="1_4gslm"]
 [ext_resource type="Script" uid="uid://bbo8et5f87hov" path="res://Script/chest.gd" id="1_5udua"]
@@ -68,7 +68,10 @@ load_path = "res://.godot/imported/Pistol_V1.00 - EMPTYING.png-d47371c0584c89648
 atlas = SubResource("CompressedTexture2D_pehl3")
 region = Rect2(0, 0, 59.8, 48)
 
-[node name="Chest" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_72g0o"]
+radius = 23.6326
+
+[node name="Chest" type="Node2D" groups=["player"]]
 script = ExtResource("1_5udua")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -89,4 +92,8 @@ position = Vector2(-24, -13)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_8nm7m")
 
-[connection signal="child_entered_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
+[node name="Area2D" type="Area2D" parent="ItemSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSprite/Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_72g0o")
