@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddh4ngsus0top"]
+
+[ext_resource type="Script" uid="uid://ji7dxkbc5m6k" path="res://Script/bullet.gd" id="1_crcui"]
+[ext_resource type="Texture2D" uid="uid://b3vp5rot1kbqb" path="res://Firebolt_SpriteSheet.png" id="2_hfawf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8st5"]
+atlas = ExtResource("2_hfawf")
+region = Rect2(10.1157, 16.7919, 43.5763, 24.0421)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4s4u5"]
+radius = 9.0
+height = 36.0
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_crcui")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_u8st5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(5.5, 0.999999)
+scale = Vector2(5.05, 3.4)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4s4u5")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

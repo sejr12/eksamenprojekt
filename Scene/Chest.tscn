@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dtyqvoujvn1ho" path="res://Animated Chests/Chests.png" id="1_4gslm"]
 [ext_resource type="Script" uid="uid://bbo8et5f87hov" path="res://Script/chest.gd" id="1_5udua"]
-[ext_resource type="Texture2D" uid="uid://dr3lnwr4s7km8" path="res://Pistol V01.00 - Second version sprite sheets (80x48)/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - EMPTYING.png" id="3_72g0o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5udua"]
 atlas = ExtResource("1_4gslm")
@@ -62,8 +61,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkml5"]
 radius = 17.1776
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pehl3"]
+load_path = "res://.godot/imported/Pistol_V1.00 - EMPTYING.png-d47371c0584c896485dc36f5b7c92b61.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nm7m"]
-atlas = ExtResource("3_72g0o")
+atlas = SubResource("CompressedTexture2D_pehl3")
 region = Rect2(0, 0, 59.8, 48)
 
 [node name="Chest" type="Node2D"]

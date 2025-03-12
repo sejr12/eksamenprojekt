@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di8r45537c3m6"
-path="res://.godot/imported/Pistol_V1.00 - RELOAD.png-4d9258cb875f72e238b909d1b1829df9.ctex"
+uid="uid://bo8i8opuh7oeq"
+path="res://.godot/imported/Glock.png-bb27346f575a480e8160a0c32a93bfca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pistol V01.00 - Second version sprite sheets (80x48)/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - RELOAD.png"
-dest_files=["res://.godot/imported/Pistol_V1.00 - RELOAD.png-4d9258cb875f72e238b909d1b1829df9.ctex"]
+source_file="res://Random PNG/Glock.png"
+dest_files=["res://.godot/imported/Glock.png-bb27346f575a480e8160a0c32a93bfca.ctex"]
 
 [params]
 

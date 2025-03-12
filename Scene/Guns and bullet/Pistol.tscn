@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8eey2sktceif"]
+
+[ext_resource type="Script" uid="uid://b8fcgd5mh8vye" path="res://Script/pistol.gd" id="1_tmsk4"]
+[ext_resource type="Texture2D" uid="uid://bo8i8opuh7oeq" path="res://Random PNG/Glock.png" id="2_uoc7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lijrf"]
+atlas = ExtResource("2_uoc7e")
+region = Rect2(0, 50.9665, 53.3147, 23.5787)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_tmsk4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(45, -4)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_lijrf")
+flip_h = true
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(20, -3)

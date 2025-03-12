@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=4 uid="uid://cixhg8jfbqoh2"]
 
-[ext_resource type="Texture2D" uid="uid://d05vgmy5myi25" path="res://Map/Dungeon_Tileset.png" id="1_x0ji0"]
+[ext_resource type="Texture2D" uid="uid://d05vgmy5myi25" path="res://Map/Dungeon_Tileset.png" id="1_hfd51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rd4b"]
-texture = ExtResource("1_x0ji0")
+texture = ExtResource("1_hfd51")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.07915, -8, 8, -8, 8, 8, 0.899294, 8)
 1:0/0 = 0
@@ -130,7 +130,7 @@ texture = ExtResource("1_x0ji0")
 9:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6ylj"]
-texture = ExtResource("1_x0ji0")
+texture = ExtResource("1_hfd51")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

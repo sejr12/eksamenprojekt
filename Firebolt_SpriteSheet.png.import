@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr3lnwr4s7km8"
-path="res://.godot/imported/Pistol_V1.00 - EMPTYING.png-d47371c0584c896485dc36f5b7c92b61.ctex"
+uid="uid://b3vp5rot1kbqb"
+path="res://.godot/imported/Firebolt_SpriteSheet.png-b7b9c0f2b00129e5adc49ec95cb0bf20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pistol V01.00 - Second version sprite sheets (80x48)/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - EMPTYING.png"
-dest_files=["res://.godot/imported/Pistol_V1.00 - EMPTYING.png-d47371c0584c896485dc36f5b7c92b61.ctex"]
+source_file="res://Firebolt_SpriteSheet.png"
+dest_files=["res://.godot/imported/Firebolt_SpriteSheet.png-b7b9c0f2b00129e5adc49ec95cb0bf20.ctex"]
 
 [params]
 
