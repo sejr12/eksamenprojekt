@@ -1,17 +1,22 @@
 extends Node2D
 
-@export var bullet_scene: PackedScene  # Assign your bullet scene in the Inspector
+@onready var bullet_scene = preload("res://Scene/Guns and bullet/Bullet.tscn")
+
+func _process(delta):
+	look_at(get_global_mouse_position())  # Rotate the pistol towards the mouse
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		shoot()
 
 func shoot():
-	var bullet = bullet_scene.instantiate()  # Create a bullet instance
-	var mouse_pos = get_global_mouse_position()  # Get mouse position
-	var direction = (mouse_pos - global_position).normalized()  # Calculate direction
-	
-	bullet.global_position = global_position  # Spawn bullet at gun position
-	bullet.direction = direction  # Set bullet direction
-
-	get_tree().current_scene.add_child(bullet)  # Add bullet to scene
+	if bullet_scene:
+		var bullet = bullet_scene.instantiate()  # Create bullet instance
+		var spawn_marker = $Sprite2D/Marker2D  # Get the Marker2D node (adjust path if needed)
+		var direction = (get_global_mouse_position() - spawn_marker.global_position).normalized()  # Get shooting direction
+		bullet.global_position = spawn_marker.global_position  # Spawn bullet at Marker2D position
+		bullet.rotation = spawn_marker.global_rotation  # Set bullet rotation to match Marker2D
+		bullet.direction = direction  # Ensure bullet has a direction variable (used in Bullet.gd)
+		get_tree().current_scene.add_child(bullet)  # Add bullet to scene
+	else:
+		print("Error: Bullet scene not assigned!")

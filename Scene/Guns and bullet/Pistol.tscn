@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8eey2sktceif"]
 
-[ext_resource type="Script" uid="uid://b8fcgd5mh8vye" path="res://Script/pistol.gd" id="1_tmsk4"]
+[ext_resource type="Script" uid="uid://cl5y44k3rdthb" path="res://Script/pistol.gd" id="1_tmsk4"]
 [ext_resource type="Texture2D" uid="uid://bo8i8opuh7oeq" path="res://Random PNG/Glock.png" id="2_uoc7e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lijrf"]
