@@ -91,4 +91,4 @@ func heal(amount):
 
 func die():
 	print("Player Died!")
-	get_tree().change_scene_to_file("res://tempdeathscreen.tscn")
+	get_tree().change_scene_to_file("res://Scene/tempdeathscreen.tscn")

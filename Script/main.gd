@@ -5,6 +5,7 @@ extends Node
 @onready var stamina_bar: TextureProgressBar = $CanvasLayer/stamina_bar
 
 
+
 func _ready():
 	character_body_2d.stamina_updated.connect(update_stamina_bar)  # Connect signal
 	update_stamina_bar(character_body_2d.current_stamina)  # Set initial value
