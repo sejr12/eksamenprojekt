@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhop35g3ub7y6" path="res://Scene/damagearea.tscn" id="5_7y4ci"]
 [ext_resource type="PackedScene" uid="uid://dpd6wj41x1r4n" path="res://Scene/Player/player.tscn" id="6_mxd2g"]
 [ext_resource type="PackedScene" uid="uid://bd45apo2ma35f" path="res://Scene/Chest.tscn" id="7_0sxm5"]
-[ext_resource type="PackedScene" uid="uid://ddwrbi2wwk0ug" path="res://Scene/Enemy/Enemy.tscn" id="7_ow1sv"]
+[ext_resource type="PackedScene" uid="uid://hwqmkbuwxclj" path="res://Scene/Enemy/Enemy.tscn" id="7_ow1sv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
 texture = ExtResource("2_75buv")
@@ -179,14 +179,17 @@ layout_mode = 2
 text = "Health: 100%"
 
 [node name="Node2D2" parent="." instance=ExtResource("5_7y4ci")]
+position = Vector2(92, -39)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_mxd2g")]
-position = Vector2(1, -1)
+position = Vector2(-118, 229)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(4, 9)
 
 [node name="Chest" parent="." instance=ExtResource("7_0sxm5")]
 position = Vector2(1469, 449)
 
-[node name="Enemy" parent="." instance=ExtResource("7_ow1sv")]
-position = Vector2(298, 0)
+[node name="CharacterBody2D2" parent="." instance=ExtResource("7_ow1sv")]
+position = Vector2(-709, 764)
+scale = Vector2(5, 5)

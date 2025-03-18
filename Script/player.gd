@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var head: AnimatedSprite2D = $head
 
 
+
+
 signal health_updated(health)  # Signal to send health updates
 signal stamina_updated(stamina)
 
@@ -19,7 +21,10 @@ const STAMINA_REGEN_DELAY = 5.0
 const ROTATION_SPEED = 10.0
 var is_sprinting = false
 var stamina_regen_timer = 0.0
-
+func _ready():
+	Global.player = self
+	
+	
 func _physics_process(delta):
 	# Keep the character rotating towards the mouse position
 	var direction = (get_global_mouse_position() - global_position).normalized()

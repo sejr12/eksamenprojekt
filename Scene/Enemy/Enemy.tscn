@@ -1,0 +1,137 @@
+[gd_scene load_steps=20 format=3 uid="uid://hwqmkbuwxclj"]
+
+[ext_resource type="Script" uid="uid://d3s1ln7dck81k" path="res://Scene/Enemy/enemy.gd" id="1_y4lbw"]
+[ext_resource type="Texture2D" uid="uid://deoq55px3s0nf" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc.png" id="3_fnbt1"]
+[ext_resource type="Texture2D" uid="uid://bgacrewxkyttq" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Walk.png" id="3_nn6od"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4lbw"]
+atlas = ExtResource("3_fnbt1")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnbt1"]
+atlas = ExtResource("3_fnbt1")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn6od"]
+atlas = ExtResource("3_fnbt1")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ati8h"]
+atlas = ExtResource("3_fnbt1")
+region = Rect2(300, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ined7"]
+atlas = ExtResource("3_fnbt1")
+region = Rect2(400, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihq1d"]
+atlas = ExtResource("3_fnbt1")
+region = Rect2(500, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0yre"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aisjb"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7eco"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf3mw"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ikb"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvenx"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75161"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2akm"]
+atlas = ExtResource("3_nn6od")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0yre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4lbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnbt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn6od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ati8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ined7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihq1d")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0yre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aisjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7eco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf3mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ikb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvenx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75161")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2akm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnbt1"]
+radius = 19.6469
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_y4lbw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c0yre")
+animation = &"attack"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 0.239583)
+scale = Vector2(1, 0.979167)
+build_mode = 1
+polygon = PackedVector2Array(-3, 7, 0, 7, 4, 7, 4, 4, 5, 4, 5, 5, 6, 5, 6, 4, 7, 4, 7, 3, 8, 3, 9, 3, 9, 5, 16, 5, 16, -2, 13, -2, 13, -4, 11, -4, 11, -3, 10, -3, 10, -2, 9, -2, 9, -1, 8, -1, 7, -1, 7, -2, 6, -2, 6, -5, 4, -8, -2, -8, -6, -3, -6, 1, -6, 4)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fnbt1")
