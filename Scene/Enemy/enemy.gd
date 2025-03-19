@@ -3,17 +3,13 @@ extends CharacterBody2D
 @export var speed = 200.0  # Enemy movement speed in pixels/second
 @export var attack_distance = 100.0  # Distance to trigger attack in pixels
 @export var damage = 25  # Damage dealt to player per hit
+@export var health: int = 50  # Add health to the enemy
+
 @onready var player = Global.player  # Reference to player
 @onready var animated_sprite = $AnimatedSprite2D  # Reference to AnimatedSprite2D
 var is_attacking = false
 var can_attack = true  # Cooldown flag for collision
 var has_hit = false  # Flag to ensure damage is dealt only once per attack
-
-func _ready():
-	if not player:
-		print("Warning: Player node not found at /root/main/Node2D/CharacterBody2D")
-	else:
-		print("Player found: ", player)
 
 func _physics_process(_delta):
 	if not is_attacking and player:
@@ -31,7 +27,6 @@ func _physics_process(_delta):
 		if velocity.length() > 0 and animated_sprite.animation != "run":
 			animated_sprite.play("run")
 		
-		# Check distance to player and trigger attack
 		var distance_to_player = global_position.distance_to(player.global_position)
 		if distance_to_player <= attack_distance:
 			attack()
@@ -63,6 +58,16 @@ func check_hit():
 			player.take_damage(damage)
 			has_hit = true  # Prevent multiple hits in one attack
 
+func take_damage(amount: int):
+	health -= amount
+	if health <= 0:
+		die()
+
+func die():
+	#if animated_sprite.sprite_frames.has_animation("death"):
+		#animated_sprite.play("death")
+		#await animated_sprite.animation_finished
+	queue_free()
 
 func _on_area_2d_body_entered(body):
 	if body == player and not is_attacking and can_attack:

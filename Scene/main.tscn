@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://btt612xp25xsr"]
+[gd_scene load_steps=10 format=4 uid="uid://btt612xp25xsr"]
 
 [ext_resource type="Script" uid="uid://bsnsx1h6n4yem" path="res://Script/main.gd" id="1_ow1sv"]
 [ext_resource type="Texture2D" uid="uid://d05vgmy5myi25" path="res://Map/Dungeon_Tileset.png" id="2_75buv"]
 [ext_resource type="Texture2D" uid="uid://berbiv83r4mmf" path="res://yellow.jpg" id="3_c2iwn"]
 [ext_resource type="PackedScene" uid="uid://dpd6wj41x1r4n" path="res://Scene/Player/player.tscn" id="6_mxd2g"]
 [ext_resource type="PackedScene" uid="uid://bd45apo2ma35f" path="res://Scene/Chest.tscn" id="7_0sxm5"]
+[ext_resource type="Script" uid="uid://danoyo465bnrq" path="res://Scene/enemyspawner.gd" id="7_75buv"]
 [ext_resource type="PackedScene" uid="uid://hwqmkbuwxclj" path="res://Scene/Enemy/Enemy.tscn" id="7_ow1sv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
@@ -169,7 +170,7 @@ texture_progress = ExtResource("3_c2iwn")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 offset_right = 106.0
-offset_bottom = 124.0
+offset_bottom = 25.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
@@ -187,6 +188,11 @@ position = Vector2(4, 9)
 [node name="Chest" parent="." instance=ExtResource("7_0sxm5")]
 position = Vector2(1469, 449)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("7_ow1sv")]
-position = Vector2(-709, 764)
+[node name="Enemyspawner" type="Node2D" parent="."]
+position = Vector2(-320.808, 622.658)
+script = ExtResource("7_75buv")
+enemy_scene = ExtResource("7_ow1sv")
+
+[node name="CharacterBody2D2" parent="Enemyspawner" instance=ExtResource("7_ow1sv")]
+position = Vector2(-90.1036, 226.322)
 scale = Vector2(5.04188, 5)
