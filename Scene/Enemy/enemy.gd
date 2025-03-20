@@ -42,7 +42,7 @@ func attack():
 	if animated_sprite.sprite_frames.has_animation("attack"):
 		animated_sprite.play("attack")
 		# Check for hit during the animation (e.g., at a specific frame or midpoint)
-		await get_tree().create_timer(0.2).timeout  # Delay to simulate attack "hit" timing
+		await get_tree().create_timer(0.4).timeout  # Delay to simulate attack "hit" timing
 		check_hit()  # Check if player is hit
 		await animated_sprite.animation_finished
 	else:
@@ -54,7 +54,7 @@ func check_hit():
 	# Check if player is still in range or colliding with Area2D
 	if player and global_position.distance_to(player.global_position) <= attack_distance and not has_hit:
 		if player.has_method("take_damage"):
-			await get_tree().create_timer(0.6).timeout
+			await get_tree().create_timer(0.4).timeout
 			player.take_damage(damage)
 			has_hit = true  # Prevent multiple hits in one attack
 

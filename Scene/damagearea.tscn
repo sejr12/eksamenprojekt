@@ -1,16 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhop35g3ub7y6"]
+[gd_scene load_steps=5 format=3 uid="uid://c0ghkefmpx4kv"]
 
-[ext_resource type="Script" uid="uid://bbk16qvumrhow" path="res://Script/damagearea.gd" id="1_7cv70"]
-[ext_resource type="Texture2D" uid="uid://c0hd1hnknlyjx" path="res://Adobe Express - file.png" id="2_6vork"]
+[sub_resource type="GDScript" id="GDScript_y0f4r"]
+script/source = "extends Area2D
+
+# The amount of damage the hazard does
+const DAMAGE_AMOUNT = 50
+
+# Called when another body enters the area
+func _on_DamageArea_body_entered(body):
+	if body.is_in_group(\"player\"):  # Check if the body is the player
+		body.take_damage(DAMAGE_AMOUNT)  # Call the take_damage function on the player
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxs7o"]
 radius = 165.496
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nrtct"]
+load_path = "res://.godot/imported/Adobe Express - file.png-0585501aeca412ad60c45601ea5a8ea7.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fue7q"]
 radius = 171.003
 
 [node name="Node2D" type="Area2D"]
-script = ExtResource("1_7cv70")
+script = SubResource("GDScript_y0f4r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(810, 213)
@@ -19,7 +31,7 @@ shape = SubResource("CircleShape2D_vxs7o")
 [node name="AdobeExpress-File" type="Sprite2D" parent="CollisionShape2D"]
 position = Vector2(4.00001, -18)
 scale = Vector2(1.45185, 1.52593)
-texture = ExtResource("2_6vork")
+texture = SubResource("CompressedTexture2D_nrtct")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(224, 622)
@@ -28,6 +40,6 @@ shape = SubResource("CircleShape2D_fue7q")
 [node name="AdobeExpress-File" type="Sprite2D" parent="CollisionShape2D2"]
 position = Vector2(5.50001, -18)
 scale = Vector2(1.50741, 1.52593)
-texture = ExtResource("2_6vork")
+texture = SubResource("CompressedTexture2D_nrtct")
 
 [connection signal="body_entered" from="." to="." method="_on_DamageArea_body_entered"]

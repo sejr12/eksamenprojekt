@@ -30,15 +30,16 @@ func _physics_process(delta):
 	var direction = (get_global_mouse_position() - global_position).normalized()
 	var angle = rad_to_deg(direction.angle())  # Convert angle to degrees
 
-	if angle >= -45 and angle < 45:
-		head.play("east")  # Looking right
-	elif angle >= 45 and angle < 135:
-		head.play("south")  # Looking down
-	elif angle >= -135 and angle < -45:
-		head.play("north")  # Looking up
-	else:
-		head.play("west")  # Looking left
-		
+	if Input.is_action_pressed("move_right"):  # D key
+		head.flip_h = false
+		head.play("Walk")
+	elif Input.is_action_pressed("move_down"):  # S key
+		head.play("Walk")
+	elif Input.is_action_pressed("move_up"):  # W key
+		head.play("Walk")
+	elif Input.is_action_pressed("move_left"):  # A key
+		head.flip_h = true
+		head.play("Walk")
 	velocity = Vector2()  # Reset velocity
 
 	# Sprint logic

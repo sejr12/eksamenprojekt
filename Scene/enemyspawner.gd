@@ -52,7 +52,6 @@ func _on_enemy_died():
 	if wave_active and enemies_alive <= 0:
 		wave_active = false
 		# Start the next wave after the wave_interval
-		await get_tree().create_timer(5).timeout
 		start_next_wave()
 
 func _process(_delta):

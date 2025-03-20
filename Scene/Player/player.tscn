@@ -1,43 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpd6wj41x1r4n"]
+[gd_scene load_steps=12 format=3 uid="uid://dpd6wj41x1r4n"]
 
 [ext_resource type="Script" uid="uid://dnm8kux2kscl0" path="res://Script/player.gd" id="1_2q8m1"]
-[ext_resource type="Texture2D" uid="uid://ff0nibxac8cd" path="res://Charater png/pixil-frame-0 (4).png" id="2_0vdpe"]
-[ext_resource type="Texture2D" uid="uid://bybn7asl7vcvg" path="res://Charater png/pixil-frame-0 (3).png" id="3_25ak0"]
-[ext_resource type="Texture2D" uid="uid://cvholpsaj8ko2" path="res://Charater png/pixil-frame-0 (1).png" id="4_ac3kj"]
-[ext_resource type="Texture2D" uid="uid://5hqut7w3i7wp" path="res://Charater png/mirrored_image.png" id="5_ogp65"]
+[ext_resource type="Texture2D" uid="uid://88b82w0qstl2" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_0.png" id="2_usf6g"]
+[ext_resource type="Texture2D" uid="uid://cisbss834rtiq" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_1.png" id="3_b00hk"]
+[ext_resource type="Texture2D" uid="uid://erh58pucie18" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_2.png" id="4_hklmv"]
+[ext_resource type="Texture2D" uid="uid://b68ecefe07ovm" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_3.png" id="5_wagb4"]
+[ext_resource type="Texture2D" uid="uid://dkjlurfyx0jqa" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_4.png" id="6_fst78"]
+[ext_resource type="Texture2D" uid="uid://81d5heeix2cx" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_5.png" id="7_rkjca"]
+[ext_resource type="Texture2D" uid="uid://dqwc0uccxvvxp" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_6.png" id="8_y7m07"]
+[ext_resource type="Texture2D" uid="uid://btft7kdnsvqjd" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_7.png" id="9_jugs6"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tyspp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_67a6e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0vdpe")
-}],
-"loop": true,
-"name": &"east",
-"speed": 5.0
+"texture": ExtResource("2_usf6g")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_25ak0")
-}],
-"loop": true,
-"name": &"north",
-"speed": 5.0
+"texture": ExtResource("3_b00hk")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_ac3kj")
-}],
-"loop": true,
-"name": &"south",
-"speed": 5.0
+"texture": ExtResource("4_hklmv")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ogp65")
+"texture": ExtResource("5_wagb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fst78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rkjca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y7m07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jugs6")
 }],
-"loop": true,
-"name": &"west",
+"loop": false,
+"name": &"Walk",
 "speed": 5.0
 }]
 
@@ -48,13 +49,17 @@ radius = 69.7209
 script = ExtResource("1_2q8m1")
 
 [node name="head" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.99, 1.65)
-sprite_frames = SubResource("SpriteFrames_tyspp")
-animation = &"east"
+position = Vector2(-4, -83)
+scale = Vector2(0.2, 0.166)
+sprite_frames = SubResource("SpriteFrames_67a6e")
+animation = &"Walk"
+frame = 7
+frame_progress = 0.37286
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -13)
 build_mode = 1
-polygon = PackedVector2Array(-27, 43, 48, 43, 48, 41, 50, 41, 50, 27, 48, 27, 48, 20, 46, 20, 46, 17, 44, 17, 44, 13, 42, 13, 42, 11, 40, 11, 40, 9, 38, 9, 34, 9, 34, 5, 32, 5, 32, -36, 30, -36, 30, -38, 28, -38, 28, -43, 24, -47, 19, -47, 19, -49, 13, -49, 2, -56, -18, -56, -23, -52, -35, -52, -44, -41, -44, -32, -50, -26, -51, -10, -50, -1, -44, 7, -38, 11, -38, 17, -28, 33)
+polygon = PackedVector2Array(-47, -12, -41, 8, -30, 50, 18, 52, 18, 13, 50, -28, 52, -46, 27, -67, -34, -58, -52, -31)
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
