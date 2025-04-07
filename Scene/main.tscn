@@ -190,7 +190,7 @@ position = Vector2(4, 9)
 position = Vector2(1469, 449)
 
 [node name="Enemyspawner" type="Node2D" parent="."]
-position = Vector2(-320.808, 622.658)
+position = Vector2(-394.079, -66.0558)
 script = ExtResource("7_75buv")
 enemy_scene = ExtResource("7_ow1sv")
 

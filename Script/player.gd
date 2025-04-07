@@ -90,6 +90,8 @@ func heal(amount):
 	health_updated.emit(health)  # Emit the signal
 	print("Player Healed: ", health)
 
+func shoot():
+	
 func die():
 	print("Player Died!")
 	get_tree().change_scene_to_file("res://Scene/tempdeathscreen.tscn")

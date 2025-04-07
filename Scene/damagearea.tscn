@@ -16,7 +16,6 @@ func _on_DamageArea_body_entered(body):
 radius = 165.496
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nrtct"]
-load_path = "res://.godot/imported/Adobe Express - file.png-0585501aeca412ad60c45601ea5a8ea7.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fue7q"]
 radius = 171.003
