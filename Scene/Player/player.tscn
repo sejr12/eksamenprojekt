@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpd6wj41x1r4n"]
+[gd_scene load_steps=13 format=3 uid="uid://dpd6wj41x1r4n"]
 
 [ext_resource type="Script" uid="uid://dnm8kux2kscl0" path="res://Script/player.gd" id="1_2q8m1"]
 [ext_resource type="Texture2D" uid="uid://88b82w0qstl2" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_0.png" id="2_usf6g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://81d5heeix2cx" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_5.png" id="7_rkjca"]
 [ext_resource type="Texture2D" uid="uid://dqwc0uccxvvxp" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_6.png" id="8_y7m07"]
 [ext_resource type="Texture2D" uid="uid://btft7kdnsvqjd" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_7.png" id="9_jugs6"]
+[ext_resource type="PackedScene" uid="uid://qn8t0tobiqv" path="res://Weapon.tscn" id="10_b00hk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_67a6e"]
 animations = [{
@@ -67,3 +68,10 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
 shape = SubResource("CircleShape2D_ewflj")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("10_b00hk")]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(1, 1)
+shoot_cooldown = 0.2
+projectile_speed = 800.0
+damage = 10.0

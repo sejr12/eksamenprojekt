@@ -45,6 +45,7 @@ func attack():
 		await get_tree().create_timer(0.4).timeout  # Delay to simulate attack "hit" timing
 		check_hit()  # Check if player is hit
 		await animated_sprite.animation_finished
+		queue_free()
 	else:
 		print("Error: 'attack' animation not found in AnimatedSprite2D")
 		await get_tree().create_timer(0.5).timeout  # Fallback

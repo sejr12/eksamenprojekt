@@ -90,7 +90,7 @@ func heal(amount):
 	health_updated.emit(health)  # Emit the signal
 	print("Player Healed: ", health)
 
-func shoot():
+#func shoot():
 	
 func die():
 	print("Player Died!")

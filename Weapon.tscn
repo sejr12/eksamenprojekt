@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qn8t0tobiqv"]
+[gd_scene load_steps=6 format=3 uid="uid://qn8t0tobiqv"]
 
 [ext_resource type="Script" uid="uid://dgrajyrukx81d" path="res://rigid_body_2d.gd" id="1_jkvh0"]
 [ext_resource type="Texture2D" uid="uid://g0foypdp3peo" path="res://1.png" id="2_a813o"]
+[ext_resource type="PackedScene" uid="uid://cl4k5tyhcx4fj" path="res://Bullet.tscn" id="2_ab8f4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hklmv"]
 atlas = ExtResource("2_a813o")
@@ -18,10 +19,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Pistol" type="RigidBody2D"]
 script = ExtResource("1_jkvh0")
+projectile_scene = ExtResource("2_ab8f4")
 
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.76837e-07, 4.76837e-07)
-scale = Vector2(2.21429, 2.5625)
+position = Vector2(9, -8)
+scale = Vector2(2.21429, 2.09375)
 sprite_frames = SubResource("SpriteFrames_ab8f4")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(31, -7)
