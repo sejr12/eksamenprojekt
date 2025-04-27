@@ -189,6 +189,8 @@ radius = 19.6469
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(5, 5)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_y4lbw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -209,7 +211,10 @@ polygon = PackedVector2Array(-3, 7, 0, 7, 4, 7, 5.2, 6.53617, 5.4, 6.33191, 5.6,
 one_way_collision_margin = 0.0
 
 [node name="Area2D" type="Area2D" parent="."]
+light_mask = 0
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("CircleShape2D_fnbt1")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

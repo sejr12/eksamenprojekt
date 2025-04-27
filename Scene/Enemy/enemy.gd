@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-@export var speed = 200.0
-@export var attack_distance = 100.0
-@export var damage = 25
-@export var health: int = 50
-@export var hurt_speed_modifier = 0.8
+@export var speed = 200.0  # Enemy movement speed in pixels/second
+@export var attack_distance = 100.0  # Distance to trigger attack in pixels
+@export var damage = 25  # Damage dealt to player per hit
+@export var health: int = 50  # Enemy health
+@export var hurt_speed_modifier = 0.5  # Speed multiplier when hurt (1.0 = full speed, 0.5 = half speed)
 
 @onready var player = Global.player  # Reference to player
 @onready var animated_sprite = $AnimatedSprite2D  # Reference to AnimatedSprite2D
@@ -13,7 +13,7 @@ var is_hurt = false
 var is_dead = false
 var can_attack = true
 var has_hit = false
-
+var score = 0
 func _ready():
 	if not player:
 		print("Warning: Global.player is null for enemy at ", global_position)
@@ -43,6 +43,7 @@ func _physics_process(_delta):
 			animated_sprite.play("run")
 
 func attack():
+	print("test")
 	is_attacking = true
 	has_hit = false
 	velocity = Vector2.ZERO
@@ -83,12 +84,16 @@ func die():
 		$CollisionShape2D.disabled = true
 		$CollisionPolygon2D.disabled = true
 		await animated_sprite.animation_finished
+		score +=1
+		print(score)
 		queue_free()
 	else:
 		print("Error: 'Death' animation not found in AnimatedSprite2D")
 		queue_free()
+	
+	
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_area_entered(body):
 	if body == player and not is_attacking and can_attack:
 		attack()
 		can_attack = false

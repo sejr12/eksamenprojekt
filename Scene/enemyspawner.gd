@@ -2,7 +2,7 @@ extends Node2D
 
 @export var enemy_scene: PackedScene  # Reference to your Enemy.tscn scene
 @export var spawn_area: Rect2 = Rect2(0, 0, 800, 600)  # Define the spawn area
-@export var wave_interval: float = 10.0  # Time between waves in seconds
+@export var wave_interval: float = 5  # Time between waves in seconds
 @export var enemies_per_wave: int = 5  # Starting number of enemies per wave
 @export var wave_enemy_increment: int = 2  # How many more enemies per wave
 @export var max_waves: int = 10  # Maximum number of waves

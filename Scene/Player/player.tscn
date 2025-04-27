@@ -43,11 +43,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ewflj"]
-radius = 69.7209
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b00hk"]
+size = Vector2(95, 114)
 
 [node name="player" type="CharacterBody2D"]
-collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_2q8m1")
 
@@ -60,17 +59,16 @@ frame = 7
 frame_progress = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-light_mask = 4
+light_mask = 2
 position = Vector2(0, -13)
 build_mode = 1
-polygon = PackedVector2Array(-47, -12, -41, 8, -30, 50, 18, 52, 18, 13, 50, -28, 52, -46, 27, -67, -34, -58, -52, -31)
+polygon = PackedVector2Array(-33, -8, -28, 4, -26, 40, 13, 40, 18, 13, 21, -23, 14, -34, 7, -44, -22, -48, -30, -23)
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
+light_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-shape = SubResource("CircleShape2D_ewflj")
+position = Vector2(-2.5, -27)
+shape = SubResource("RectangleShape2D_b00hk")
 
 [node name="RigidBody2D" parent="." instance=ExtResource("10_b00hk")]
-position = Vector2(-2.38419e-07, 0)
