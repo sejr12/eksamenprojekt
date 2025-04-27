@@ -47,6 +47,8 @@ animations = [{
 radius = 69.7209
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_2q8m1")
 
 [node name="head" type="AnimatedSprite2D" parent="."]
@@ -58,6 +60,7 @@ frame = 7
 frame_progress = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 4
 position = Vector2(0, -13)
 build_mode = 1
 polygon = PackedVector2Array(-47, -12, -41, 8, -30, 50, 18, 52, 18, 13, 50, -28, 52, -46, 27, -67, -34, -58, -52, -31)
@@ -71,7 +74,3 @@ shape = SubResource("CircleShape2D_ewflj")
 
 [node name="RigidBody2D" parent="." instance=ExtResource("10_b00hk")]
 position = Vector2(-2.38419e-07, 0)
-scale = Vector2(1, 1)
-shoot_cooldown = 0.2
-projectile_speed = 800.0
-damage = 10.0

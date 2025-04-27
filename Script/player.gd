@@ -26,9 +26,6 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	# Keep the character rotating towards the mouse position
-	var direction = (get_global_mouse_position() - global_position).normalized()
-	var angle = rad_to_deg(direction.angle())  # Convert angle to degrees
 
 	if Input.is_action_pressed("move_right"):  # D key
 		head.flip_h = false

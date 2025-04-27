@@ -1,11 +1,11 @@
 extends Node2D
 
 @export var enemy_scene: PackedScene  # Reference to your Enemy.tscn scene
-@export var spawn_area: Rect2 = Rect2(0, 0, 800, 600)  # Define the spawn area (adjust to your map size)
+@export var spawn_area: Rect2 = Rect2(0, 0, 800, 600)  # Define the spawn area
 @export var wave_interval: float = 10.0  # Time between waves in seconds
 @export var enemies_per_wave: int = 5  # Starting number of enemies per wave
 @export var wave_enemy_increment: int = 2  # How many more enemies per wave
-@export var max_waves: int = 10  # Maximum number of waves (optional)
+@export var max_waves: int = 10  # Maximum number of waves
 
 var current_wave: int = 0
 var enemies_alive: int = 0
@@ -33,6 +33,9 @@ func start_next_wave():
 	wave_active = true
 
 func spawn_enemy():
+	if not enemy_scene:
+		push_error("Enemy scene is not assigned in EnemySpawner! Please set the 'Enemy Scene' property in the editor.")
+		return
 	var enemy_instance = enemy_scene.instantiate()
 	# Randomize spawn position within the spawn_area
 	var spawn_position = Vector2(
@@ -40,9 +43,9 @@ func spawn_enemy():
 		randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
 	)
 	enemy_instance.global_position = spawn_position
-	# Add the enemy to the scene tree (adjust the parent as needed)
+	# Add the enemy to the scene tree
 	get_tree().current_scene.add_child(enemy_instance)
-	# Connect to the enemy's "died" signal if you have one, to track when it dies
+	# Connect to the enemy's "tree_exited" signal to track when it dies
 	enemy_instance.connect("tree_exited", Callable(self, "_on_enemy_died"))
 	enemies_alive += 1
 
@@ -52,6 +55,7 @@ func _on_enemy_died():
 	if wave_active and enemies_alive <= 0:
 		wave_active = false
 		# Start the next wave after the wave_interval
+		await get_tree().create_timer(wave_interval).timeout
 		start_next_wave()
 
 func _process(_delta):
