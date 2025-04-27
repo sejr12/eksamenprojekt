@@ -93,7 +93,8 @@ func die():
 	
 	
 
-func _on_area_2d_area_entered(body):
+func _on_area_2d_body_entered(body):
+	print("Area2D body entered by: ", body)
 	if body == player and not is_attacking and can_attack:
 		attack()
 		can_attack = false
