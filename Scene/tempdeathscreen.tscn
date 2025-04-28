@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg3x68enha2dk"]
+[gd_scene load_steps=5 format=3 uid="uid://dg3x68enha2dk"]
 
 [ext_resource type="Script" uid="uid://dguua2p42fjjr" path="res://Script/tempdeathscreen.gd" id="1_5lmrr"]
+[ext_resource type="Texture2D" uid="uid://u4gfyoj8vtvt" path="res://Map/dyingbluehairman.jpg" id="2_8ipy6"]
+[ext_resource type="Texture2D" uid="uid://dc3egtebgebql" path="res://Map/Skærmbillede 2025-04-29 010622.png" id="3_ediae"]
+[ext_resource type="Script" uid="uid://fv2gjnqbf6p6" path="res://Scene/skærmbillede_2025_04_29010622.gd" id="4_ot16o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,6 +13,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5lmrr")
+
+[node name="Dyingbluehairman" type="Sprite2D" parent="."]
+position = Vector2(575.5, 324)
+scale = Vector2(1.79844, 1.01563)
+texture = ExtResource("2_8ipy6")
+
+[node name="Skærmbillede2025-04-29010622" type="Sprite2D" parent="."]
+position = Vector2(574.5, 314)
+scale = Vector2(1.52083, 2.075)
+texture = ExtResource("3_ediae")
+script = ExtResource("4_ot16o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,6 +43,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "You Died"
+
+[node name="scorelabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Score:"
+horizontal_alignment = 1
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2

@@ -3,7 +3,12 @@ extends Node
 @onready var health_label: Label = $CanvasLayer/MarginContainer/VBoxContainer/HealthLabel
 @onready var character_body_2d: CharacterBody2D = $CharacterBody2D  
 @onready var stamina_bar: TextureProgressBar = $CanvasLayer/stamina_bar
+@onready var health_bar: TextureProgressBar = $CanvasLayer/health_bar
+@onready var scorelabel: Label = $CanvasLayer/MarginContainer/VBoxContainer/scorelabel
 
+#var high_score = 0
+#var current_score = int
+#var previous_score: int
 
 
 func _ready():
@@ -18,6 +23,7 @@ func _ready():
 
 func update_health_label(health):
 	health_label.text = "Health: " + str(health)  # Update UI text
-
+	health_bar.max_value = character_body_2d.MAX_HEALTH  # Ensure max value is correct
+	health_bar.value = health  # Update health bar
 func update_stamina_bar(stamina):
 	stamina_bar.value = stamina  # Update stamina bar

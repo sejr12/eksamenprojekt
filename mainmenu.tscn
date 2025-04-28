@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnwdvfu45wb2l"]
+
+[ext_resource type="Script" uid="uid://dgau5no0fopyn" path="res://mainmenu.gd" id="1_cmhrf"]
+[ext_resource type="Texture2D" uid="uid://b7wqahbdtq7ob" path="res://backgroundmainmenu.jpg" id="2_d2nv2"]
+[ext_resource type="Texture2D" uid="uid://dc3egtebgebql" path="res://Map/Skærmbillede 2025-04-29 010622.png" id="3_wgsso"]
+[ext_resource type="Script" uid="uid://bwrwu7rrtwe40" path="res://skærmbillede_2025_04_29010622.gd" id="4_igs2m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = 160.0
+offset_right = -653.0
+offset_bottom = -421.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmhrf")
+
+[node name="Backgroundmainmenu" type="Sprite2D" parent="."]
+position = Vector2(304.5, 163.5)
+scale = Vector2(1.79844, 1.01094)
+texture = ExtResource("2_d2nv2")
+
+[node name="Skærmbillede2025-04-29010622" type="Sprite2D" parent="."]
+position = Vector2(314, 178.25)
+scale = Vector2(1, 1.66875)
+texture = ExtResource("3_wgsso")
+script = ExtResource("4_igs2m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 116.0
+offset_right = 427.0
+offset_bottom = 289.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Zombie Shooter"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="highscorelabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "High Score:"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

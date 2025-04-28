@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 200.0
-@export var attack_distance = 100.0
+@export var attack_distance = 150.0
 @export var damage = 25
 @export var health: int = 50
 @export var hurt_speed_modifier = 0.8
