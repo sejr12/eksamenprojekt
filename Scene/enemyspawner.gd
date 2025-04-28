@@ -51,12 +51,15 @@ func spawn_enemy():
 
 func _on_enemy_died():
 	enemies_alive -= 1
-	# Check if all enemies in the wave are dead
 	if wave_active and enemies_alive <= 0:
 		wave_active = false
-		# Start the next wave after the wave_interval
-		await get_tree().create_timer(wave_interval).timeout
-		start_next_wave()
+		# Only proceed if the node is still in the scene tree
+		if is_inside_tree():
+			# Start the next wave after the wave_interval
+			await get_tree().create_timer(wave_interval).timeout
+			start_next_wave()
+		else:
+			print("EnemySpawner is no longer in the scene tree, skipping wave start.")
 
 func _process(_delta):
 	# Optional: Display wave info for debugging

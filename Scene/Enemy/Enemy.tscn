@@ -195,9 +195,7 @@ script = ExtResource("1_y4lbw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c0yre")
-animation = &"Hit"
-frame = 3
-frame_progress = 1.0
+animation = &"Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.4, -0.4)
@@ -218,3 +216,4 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_fnbt1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

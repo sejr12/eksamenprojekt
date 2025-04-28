@@ -71,21 +71,20 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# Debugging
 
 
 func take_damage(amount):
 	health -= amount
-	health_updated.emit(health)  # Emit the signal
+	health_updated.emit(health)
 	print("Player Health: ", health)
 	
 	if health <= 0:
-		die()
+		game_over()
 
 func heal(amount):
 	health = min(health + amount, MAX_HEALTH)
-	health_updated.emit(health)  # Emit the signal
+	health_updated.emit(health)
 	print("Player Healed: ", health)
 
-func die():
+func game_over():
 	get_tree().change_scene_to_file("res://Scene/tempdeathscreen.tscn")

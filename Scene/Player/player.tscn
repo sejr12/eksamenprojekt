@@ -74,3 +74,4 @@ position = Vector2(-2.5, -27)
 shape = SubResource("RectangleShape2D_b00hk")
 
 [node name="RigidBody2D" parent="." instance=ExtResource("10_b00hk")]
+gravity_scale = 0.0
