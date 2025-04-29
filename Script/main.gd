@@ -6,24 +6,22 @@ extends Node
 @onready var health_bar: TextureProgressBar = $CanvasLayer/health_bar
 @onready var scorelabel: Label = $CanvasLayer/MarginContainer/VBoxContainer/scorelabel
 
-#var high_score = 0
-#var current_score = int
-#var previous_score: int
-
-
 func _ready():
-	character_body_2d.stamina_updated.connect(update_stamina_bar)  # Connect signal
-	update_stamina_bar(character_body_2d.current_stamina)  # Set initial value
+	character_body_2d.stamina_updated.connect(update_stamina_bar) 
+	update_stamina_bar(character_body_2d.current_stamina)  
 	
-	if character_body_2d.has_signal("health_updated"):  # Check if signal exists
-		character_body_2d.health_updated.connect(update_health_label)  # Connect the signal
-		update_health_label(character_body_2d.health)  # Set initial health value
+	if character_body_2d.has_signal("health_updated"):  
+		character_body_2d.health_updated.connect(update_health_label)  
+		update_health_label(character_body_2d.health) 
 	else:
 		print("Error: 'health_updated' signal not found in CharacterBody2D!")
 
 func update_health_label(health):
-	health_label.text = "Health: " + str(health)  # Update UI text
-	health_bar.max_value = character_body_2d.MAX_HEALTH  # Ensure max value is correct
-	health_bar.value = health  # Update health bar
+	health_label.text = "Health: " + str(health) 
+	health_bar.max_value = character_body_2d.MAX_HEALTH  
+	health_bar.value = health 
 func update_stamina_bar(stamina):
-	stamina_bar.value = stamina  # Update stamina bar
+	stamina_bar.value = stamina 
+
+func update_score():
+	scorelabel.text = "Score: " + str(Global.score)

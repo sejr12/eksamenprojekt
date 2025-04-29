@@ -8,24 +8,23 @@ var can_shoot: bool = true
 var timer: float = 0.0
 
 func _process(delta: float) -> void:
-	# Update mouse position and angle every frame
 	var mouse_pos = get_global_mouse_position()
 	var angle = (mouse_pos - global_position).angle()
 	global_rotation = angle
 	
-	# Flip sprite only, not the entire node
+	
 	if angle > PI/2 and angle < 3*PI/2:
 		$Weapon.scale.y = -1
 	else:
 		$Weapon.scale.y = 1
 	
-	# Handle cooldown
+	
 	if not can_shoot:
 		timer -= delta
 		if timer <= 0:
 			can_shoot = true
 	
-	# Shoot
+	
 	if Input.is_action_pressed("shoot") and can_shoot:
 		shoot()
 
@@ -44,7 +43,7 @@ func shoot() -> void:
 		return
 	projectile.global_position = marker.global_position
 	projectile.rotation = global_rotation
-	projectile.z_index = 1 # Ensure visibility
+	projectile.z_index = 1 
 	if projectile.has_method("set_velocity"):
 		projectile.set_velocity(projectile_speed, damage)
 	else:

@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 
 
-signal health_updated(health)  # Signal to send health updates
+signal health_updated(health)  
 signal stamina_updated(stamina)
 
 const BASE_SPEED = 500
@@ -27,47 +27,47 @@ func _ready():
 	
 func _physics_process(delta):
 
-	if Input.is_action_pressed("move_right"):  # D key
+	if Input.is_action_pressed("move_right"):  
 		head.flip_h = false
 		head.play("Walk")
-	elif Input.is_action_pressed("move_down"):  # S key
+	elif Input.is_action_pressed("move_down"): 
 		head.play("Walk")
-	elif Input.is_action_pressed("move_up"):  # W key
+	elif Input.is_action_pressed("move_up"): 
 		head.play("Walk")
-	elif Input.is_action_pressed("move_left"):  # A key
+	elif Input.is_action_pressed("move_left"): 
 		head.flip_h = true
 		head.play("Walk")
-	velocity = Vector2()  # Reset velocity
+	velocity = Vector2()  
 
-	# Sprint logic
+	
 	if Input.is_action_pressed("sprint") and current_stamina > 0:
-		speed = BASE_SPEED * 2  # Double the speed
+		speed = BASE_SPEED * 2  
 		is_sprinting = true
-		current_stamina -= STAMINA_DEPLETION_RATE * delta  # Decrease stamina while sprinting
-		stamina_regen_timer = 0.0  # Reset stamina regen delay
+		current_stamina -= STAMINA_DEPLETION_RATE * delta  
+		stamina_regen_timer = 0.0  
 	else:
 		is_sprinting = false
-		speed = BASE_SPEED  # Reset to normal speed
+		speed = BASE_SPEED  
 
-		# Start stamina regen timer
+		
 		if current_stamina < MAX_STAMINA:
 			stamina_regen_timer += delta
 			if stamina_regen_timer >= STAMINA_REGEN_DELAY:
-				current_stamina += STAMINA_REGEN_RATE * delta  # Refill stamina
+				current_stamina += STAMINA_REGEN_RATE * delta  
 
-	# Clamp stamina to valid range
+	
 	current_stamina = clamp(current_stamina, 0, MAX_STAMINA)
 	stamina_updated.emit(current_stamina)
 
-	# **Movement based on specific keys (no rotation)**:
+	
 	if Input.is_action_pressed("move_up"): 
-		velocity.y -= speed  # Move up
+		velocity.y -= speed 
 	if Input.is_action_pressed("move_down"): 
-		velocity.y += speed  # Move down
+		velocity.y += speed  
 	if Input.is_action_pressed("move_left"):    
-		velocity.x -= speed  # Move left
+		velocity.x -= speed  
 	if Input.is_action_pressed("move_right"):  
-		velocity.x += speed  # Move right
+		velocity.x += speed  
 
 	move_and_slide()
 
@@ -87,4 +87,11 @@ func heal(amount):
 	print("Player Healed: ", health)
 
 func game_over():
+	if Global.score > Global.save_data.high_score:
+		Global.save_data.high_score = Global.score
+		Global.save_data.save()
+
+	Global.last_score = Global.score 
+	Global.score = 0 
+
 	get_tree().change_scene_to_file("res://Scene/tempdeathscreen.tscn")

@@ -1,12 +1,13 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var scorelabel: Label = $VBoxContainer/scorelabel
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	set_score(Global.last_score)
+
+
+
 func _process(delta: float) -> void:
 	pass
 
@@ -23,3 +24,8 @@ func _on_button_2_pressed() -> void:
 func _on_button_3_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scene/main.tscn")
 	
+func set_score(n: int):
+	scorelabel.text = "Final Score: " + str(n)
+	if n > Global.save_data.high_score:
+		Global.save_data.high_score = n
+		Global.save_data.save()

@@ -200,7 +200,7 @@ text = "Health: 100%"
 
 [node name="scorelabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Score:"
+text = "Score: 0"
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_mxd2g")]
 position = Vector2(-118, 229)

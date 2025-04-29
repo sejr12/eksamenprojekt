@@ -21,7 +21,7 @@ func _ready():
 		print("global.player er null", global_position)
 
 func _physics_process(_delta):
-	if is_dead:  # Exit immediately if dead
+	if is_dead:  
 		return
 	
 	if player:
@@ -39,7 +39,6 @@ func _physics_process(_delta):
 			if velocity.length() > 0 and animated_sprite.animation != "run" and not is_hurt:
 				animated_sprite.play("run")
 		
-		# Handle continuous attacks while player is in range
 		if player_in_range and not is_attacking and can_attack:
 			attack()
 			can_attack = false
