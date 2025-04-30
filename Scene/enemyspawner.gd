@@ -4,7 +4,7 @@ extends Node2D
 @export var spawn_area: Rect2 = Rect2(0, 0, 800, 600) 
 @export var wave_interval: float = 5 
 @export var enemies_per_wave: int = 5  
-@export var wave_enemy_increment: int = 2  
+@export var wave_enemy_increment: int = 2 
 @export var max_waves: int = 10  
 
 var current_wave: int = 0

@@ -2,8 +2,8 @@ extends Node
 
 @onready var health_label: Label = $CanvasLayer/MarginContainer/VBoxContainer/HealthLabel
 @onready var character_body_2d: CharacterBody2D = $CharacterBody2D  
-@onready var stamina_bar: TextureProgressBar = $CanvasLayer/stamina_bar
-@onready var health_bar: TextureProgressBar = $CanvasLayer/health_bar
+@onready var health_bar: TextureProgressBar = $CanvasLayer/MarginContainer2/health_bar
+@onready var stamina_bar: TextureProgressBar = $CanvasLayer/MarginContainer2/stamina_bar
 @onready var scorelabel: Label = $CanvasLayer/MarginContainer/VBoxContainer/scorelabel
 
 func _ready():
